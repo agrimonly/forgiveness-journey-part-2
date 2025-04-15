@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Special Dates 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #ff6ec7;
+    }
+
+    .content {
+      font-size: 1.3rem;
+      max-width: 90%;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="heading">Click anywhere to continue 💖</h1>
+  <div class="content" id="content"></div>
+
+  <script>
+    const dateMessages = [
+      { date: "11 Nov 2017", message: "Fell in love 🫠\nThe day I will remember always, the best decision I ever did." },
+      { date: "4 Mar 2023", message: "Found the ID 🥳\nThe day I found you in a red and black check shirt. 😍" },
+      { date: "22 Feb 2024", message: "Req sent 😬\nThe day I was stressed. 😓" },
+      { date: "28 Aug 2024", message: "Maine kuchh nahi kiya, Akanksha 🙇🏻‍♂️\nThe day Akrati helped, the day I did the moonwalk, the day you made me realize what real phatna is. 😂" },
+      { date: "24 Oct 2024", message: "First talk and walk 🚶🏻‍♂️🚶🏻‍♀️\nThe day the route felt very less, time ran so fast. 🕰️" },
+      { date: "26 Oct 2024", message: "First flower given 🌹\nThe day my love was enclosed in a maths copy. 📘❤️" },
+      { date: "8 Nov 2024", message: "Akanksha, you are that girl 💖\nThe day g___ phatna gone to another level. 🤭" },
+      { date: "15 Nov 2024", message: "Akanksha, can I be your first bf?\nFrom asking 'Will you be my gf?' to 'Can I be your bf?' ❤️" },
+      { date: "5 Feb 2025", message: "5 kisses due\nA reminder of those kisses we owe each other. 💋" },
+      { date: "15 Mar 2025", message: "Almost forgot…\nThe day I forgot whether it was 15 or not, but... 🤷🏻‍♂️" },
+      { date: "15 Apr 2025", message: "5 months anniversary 🥰\nCelebrating five beautiful months together, and I can't wait for more! 💖" }
+    ];
+
+    let step = 0;
+    const content = document.getElementById('content');
+    const heading = document.getElementById('heading');
+
+    document.body.addEventListener('click', () => {
+      if (step === 0) {
+        heading.style.display = 'none';
+        content.style.display = 'block';
+      }
+
+      const index = Math.floor((step - 1) / 2);
+
+      if (step % 2 === 1 && index < dateMessages.length) {
+        content.innerText = dateMessages[index].date;
+      } else if (step % 2 === 0 && step !== 0 && index < dateMessages.length) {
+        content.innerText = dateMessages[index].message;
+      } else if (index >= dateMessages.length) {
+        content.innerText = "That's all our memories (for now) 💞";
+      }
+
+      step++;
+    });
+  </script>
+</body>
+</html>
